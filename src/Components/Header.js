@@ -8,17 +8,19 @@ function Header(){
         localStorage.clear();
         navigate("/register");
     }
+    function update(){
+        navigate("/updateLogin");
+    }
     return(
         <div>
             <Navbar bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="/">PruebaNetgrid</Navbar.Brand>
                     <Nav className="me-auto navbar_wrapper">
-                        <Link to="/home">Home</Link>
                         {
                             localStorage.getItem('user-info') ?
                                 <>
-                                    <Link to="/personajes">personajes</Link>
+                                    <Link to="/home">Home</Link>
                                 </>
                             :
                                 <>
@@ -33,6 +35,7 @@ function Header(){
                                 <Nav>
                                     <NavDropdown title={user && user.name}>
                                         <NavDropdown.Item onClick={logOut}>Cerrar sesion</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={update}>Actualizar datos</NavDropdown.Item>
                                     </NavDropdown>
                                 </Nav>
                             </>

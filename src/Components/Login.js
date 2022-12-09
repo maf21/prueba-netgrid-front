@@ -26,8 +26,6 @@ function Login(){
         if(!result.error){
             localStorage.setItem("user-info",JSON.stringify(result))
             navigate("/")
-        }else{
-            console.warn(result)
         }
     }
     return(
